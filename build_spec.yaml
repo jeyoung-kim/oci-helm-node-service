@@ -94,6 +94,8 @@ steps:
       helm package .
       helm registry login ${HELM_REPO} -u ${HELM_REPO_USER} -p ${USER_AUTH_TOKEN}
       helm push *.tgz ${HELM_REPO_URL}
+      helm push "node-service-${HELM_VERSION}.tgz" \
+      oci://icn.ocir.io/cnhqzfkqyp72/jey/iad-dop-lab18-1-ocir-2/helm-repo
       
   - type: Command
     timeoutInSeconds: 1200
